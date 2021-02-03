@@ -1,0 +1,19 @@
+@startuml DiagLigne
+'--------------------------------
+' Parametres pour le dessin
+'--------------------------------
+hide circle
+hide empty members
+hide empty methods
+'--------------------------------
+
+class Ligne{ 
+Point A
+Point B
+}
+class Point extends Ligne {
+x
+y
+}
+
+@enduml
