@@ -22,12 +22,11 @@ class Enseignant{
     prénom
 }
 
-(Etudiant, Examen) .. Note
-
-
+Etudiant "1..*" -- "0..*" Examen 
 Etudiant "1..*" -- "1..*" Cours
 Enseignant "1..*" -- "1" Cours
-Examen "1" -- "1" Cours
+Examen "*" -- "1" Cours
+(Etudiant, Examen) . Note
 
 
 @enduml
