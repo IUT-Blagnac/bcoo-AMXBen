@@ -1,0 +1,22 @@
+@startuml ClassOrdinateur
+
+class Clavier{
+    Touches
+    azerty
+    qwertzy
+}
+
+class Propriétaire{
+    nom
+    prénom
+}
+
+class PCPortable{
+    PrixD'Achat
+    Valeur
+}
+
+PCPortable "*" -- "0..1" Propriétaire : Possède
+PCPortable "1" -- "1" Clavier : Intégre
+
+@enduml
