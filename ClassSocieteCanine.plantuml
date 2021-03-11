@@ -37,7 +37,7 @@ class Posseder{
     date_poss
 }
 
-Proprietaire "1" --- "0..10" Chiens
+Proprietaire "1" --- "1..10" Chiens
 Concours "1" --- "1" Ville
 Chiens "1" --- "0..10" Concours
 Chiens "1" --- "1" Races
