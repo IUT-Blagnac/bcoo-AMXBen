@@ -1,0 +1,48 @@
+@startuml ClassClebards
+
+class Concours{
+    participants
+    classement_chiens
+}
+
+class Chiens {
+    nom
+    numéro
+    sexe
+    date_naissance
+}
+
+class Races{
+
+}
+
+class Proprietaire{
+    nom
+    adresse
+}
+
+class Ville{
+    nom
+}
+
+class Organiser{
+    date_organisation
+}
+
+class Participer{
+    date_participation
+}
+
+class Posseder{
+    date_poss
+}
+
+Proprietaire "1" --- "0..10" Chiens
+Concours "1" --- "1" Ville
+Chiens "1" --- "0..10" Concours
+Chiens "1" --- "1" Races
+(Chiens,Proprietaire).Posseder
+(Concours,Ville).Organiser
+(Chiens,Concours).Participer
+
+@enduml
