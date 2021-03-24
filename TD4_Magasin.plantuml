@@ -1,0 +1,18 @@
+@startuml TD4_Magasin
+
+actor Client
+usecase (Passer \n dans les rayons) as ray
+usecase (Demander \n des renseignements) as rens
+usecase (Essayer) as try
+usecase (Prendre \n un article) as prendre
+usecase (Payer) as pay
+usecase (Bénéficier d'une réduction) as réduc
+
+Client --> ray
+ray <.. rens: "extends"
+ray <.. try: "extends"
+ray -|> prendre
+prendre --> pay
+prendre <.. réduc: "extends"
+
+@enduml
