@@ -1,0 +1,18 @@
+@startuml TD4_Etablissement_Scolaire
+
+actor Enseignant
+actor Etudiant
+actor Responsable
+usecase (Réserver \n des salles) as reserver
+usecase (Consulter \n le planning) as consulterP
+usecase (Consulter \n le récapitulatif) as consulterR
+usecase (Editer \n le récapitulatif) as editer
+
+Enseignant-|>Etudiant
+Responsable-|>Enseignant
+Etudiant -> consulterP
+Enseignant --> consulterR
+Enseignant --> reserver
+Responsable --> editer
+
+@enduml
