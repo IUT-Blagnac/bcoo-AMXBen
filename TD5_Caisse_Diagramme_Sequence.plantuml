@@ -1,0 +1,41 @@
+@startuml
+
+hide footbox
+
+participant A as ":Client"
+participant B as ":Caissier"
+participant C as ":Caisse"
+
+A -> B: arrive
+activate B
+
+participant Tapis as ":Tapis"
+A -> Tapis : deposerArticles
+activate Tapis
+
+loop "Pour chaque article"
+    B->Tapis:prendreArticle
+    B->C:scanner
+    activate C
+
+    opt "quantité>1"
+        B->C:saisir(qte)
+    end
+    C --> A:afficherPrixEtLibelle
+end
+B->A:signalerFin
+C-->A:afficherTotal
+C-->B:afficherTotal
+B->A:annonceMontant
+A-->B:choixModePaiement
+opt "liquide"
+    B->A:encaisser
+    C-->B:indiquerMontantARendre
+    B->A:rendreMonnaie
+opt"chèque"
+    B-->A:noterNumID
+opt"carte de crédit"
+end
+C->B:imprimerTicket
+B->A:donnerTicket
+
