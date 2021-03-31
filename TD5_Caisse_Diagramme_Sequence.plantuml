@@ -28,19 +28,11 @@ C-->A:afficherTotal
 C-->B:afficherTotal
 B->A:annonceMontant
 A-->B:choixModePaiement
-opt "liquide"
-    B->A:encaisser
-    C-->B:indiquerMontantARendre
-    B->A:rendreMonnaie
-end
-opt"chèque"
-    B-->A:noterNumID
-end
-opt"carte de crédit"
-    C->A:demandeAutorisation
-end
+A->B:payerLiquide(s)
+B->C:encaisser(s)
+C-->B:afficheResteARendre
+B->A:rendreDifference
 C->B:imprimerTicket
 B->A:donnerTicket
 
 @enduml
-
