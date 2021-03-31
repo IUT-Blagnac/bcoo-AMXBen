@@ -32,10 +32,15 @@ opt "liquide"
     B->A:encaisser
     C-->B:indiquerMontantARendre
     B->A:rendreMonnaie
+end
 opt"chèque"
     B-->A:noterNumID
+end
 opt"carte de crédit"
+    C->A:demandeAutorisation
 end
 C->B:imprimerTicket
 B->A:donnerTicket
+
+@enduml
 
