@@ -16,6 +16,7 @@ class Artisan {
   nom
   adresse
   tph
+  getPayeArtisan(c: Chantier)
 }
 
 class Tache {
@@ -35,6 +36,8 @@ class Chantier {
   cloturer(Date)
   cloturer()
   'SetDateFermeture(Date)
+  majAvancement(date, duree)
+  getBilanAvancement()
 }
 
 class Modele {
@@ -43,6 +46,9 @@ class Modele {
   prixVenteM
   prixRevientM
   dureeConstructionM
+  getDureeConstructionMoyenne()
+  majDureeConstructionMoyenne()
+  getArtisansQualifies()
 }
 
 '------ Classes Associations
@@ -50,11 +56,14 @@ class Modele {
 class Realiser {
   date
   duree
+  getTache()
+  getModele()
 }
 
 class Executer {
   ordre
   dureeMoy
+  getDureeMoyenne()
 }
 
 '------ Associations
